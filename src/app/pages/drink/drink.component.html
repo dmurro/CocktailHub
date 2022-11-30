@@ -1,0 +1,51 @@
+<button class="back_button" (click)="onBackClick()">
+  <svg
+    class="home_svg"
+    width="1.5em"
+    height="1.5em"
+    viewBox="-32 0 512 512"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+    />
+  </svg>
+</button>
+<app-title></app-title>
+<img class="card_drink_detail_image" [src]="drink.strDrinkThumb" />
+<div class="card_drink_detail_img_overlay"></div>
+<section id="detail_section">
+  <div class="card_drink_detail_body">
+    <div class="card_detail_backoground">
+      <h5 class="card__drink_detail_title">
+        {{ drink.strDrink }}
+        <span class="card_drink_category">({{ drink.strCategory }})</span>
+      </h5>
+
+      <h5 class="card_drink_detail_subtitle">Ingredients</h5>
+      <ul>
+        <li
+          class="card_drink_detail_list_item"
+          *ngFor="let ingredient of drink.ingredients"
+        >
+          <a [routerLink]="'/ingredient/' + ingredient.name">
+            {{ ingredient.name }}
+          </a>
+          : {{ ingredient.measure }}
+        </li>
+      </ul>
+      <span class="separator"> </span>
+      <h5 class="card_drink_detail_subtitle">Instructions</h5>
+      <p class="card_drink_detail_par" #langInstruction>
+        {{ drink.instructions[0].instructions }}
+      </p>
+      <div class="card_drink_detail_instructions_container">
+        <div *ngFor="let drink of drink.instructions; index as i">
+          <button (click)="changeLang(i)" class="card_drink_detail_lang_button">
+            {{ drink.lang }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

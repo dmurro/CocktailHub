@@ -1,0 +1,28 @@
+<div
+  class="container-fluid d-flex flex-row justify-content-around align-items-baseline p-3"
+>
+  <h1>
+    Cocktail<span class="hub">Hub</span><span class="display-hover">DB</span>
+  </h1>
+</div>
+
+<div
+  class="container d-flex flex-row flex-wrap justify-content-around align-items-baseline p-3"
+>
+  <div class="card m-3" style="width: 18rem" *ngFor="let drink of drinks">
+    <img
+      class="card-img-top"
+      [src]="drink.strDrinkThumb"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ drink.strDrink }}</h5>
+      <a
+        class="button btn-accent"
+        type="button"
+        [routerLink]="'/drink/' + drink.idDrink"
+        >Details</a
+      >
+    </div>
+  </div>
+</div>
