@@ -33,22 +33,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     
-   /* this.cartList = localStorage.getItem(JSON.parse('cartDrinks')); */
-    /* this.cartList = JSON.parse(); */
   }
 
-  /*   handleSearchDrinksByName = () => {
+  handleSearchDrinksByName = () => {
     this.apiService
       .getDrinksByName(this.jsonIn.searchInputName)
       .subscribe((res) => {
         res === null ? (this.isNull = true) : (this.drinks = res);
       });
     this.isSearching = true;
-  }; */
-  handleSearchDrinksByName = () => {
-    return this.activatedRoute.data.subscribe(({ drink }) => {
-      this.drinks = drink;
-    });
   };
 
   handleSearchDrinksByIngredient = () => {

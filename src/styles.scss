@@ -221,20 +221,6 @@ h1 {
 }
 
 
-.card_drink_detail_container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  color: $white;
-  text-align: center;
-  width: 60vw;
-  margin-left: 20vw;
-  padding-top: 3em;
-  background-color: $white;
-}
-
 .card_drink_detail_image {
   width: 80%;
   margin-left: 10%;
@@ -246,16 +232,13 @@ h1 {
 app-card-drink.active {
   background-color: $accent;
 }
-/* .card_drink_detail_img_overlay {
-  position: relative;
-  top: 10px
-} */
 
 .card__drink_detail_title {
   max-width: 80%;
   margin-left: 10%;
   padding-top: 1em;
   text-align: center;
+  color: $black;
 }
 
 .card_drink_category {
@@ -270,6 +253,7 @@ app-card-drink.active {
 .card_drink_detail_list_item {
   list-style-type: none;
   text-align: justify center;
+  color: $black;
 }
 
 .card_drink_detail_list_item a {
@@ -292,6 +276,7 @@ app-card-drink.active {
 .card_drink_detail_par {
   max-width: 80vw;
   margin-left: 10vw;
+  color: $black;
 }
 
 .card_drink_detail_lang_button {
@@ -335,11 +320,46 @@ app-card-drink.active {
   border-radius: 50%;
 
 }
+/* ***********BREAKPOINTS************** */
 
 @media screen and (min-width: 992px) {
   .nav {
     justify-content: center;
   }
+  .card_drink_detail_image {
+    width: 40%;
+    height: 40vh;
+    margin-left: 0;
+
+  }
+
+  .card_drink_detail_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    width: 80vw;
+    margin-left: 10vw;
+  }
+
+  
+.card_drink_detail_par {
+  margin-left: 0vw;
+}
+
+/*   #detail_section {
+    height: 40vh;
+
+  } */
+
+.card_detail_backoground {
+    min-width:60%;
+    border-radius: 0px 10px 10px 0px;
+    height: 40vh;
+  } 
+
 };
 
 
@@ -412,3 +432,20 @@ svg:hover {
   justify-content: center;
   align-items: center;
 }
+
+.ingredient_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.ingredient_container span {
+  color: $accent;
+}
+
+.ingredient_image {
+  height: 20vh;
+  width: 20vw;
+} 

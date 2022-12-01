@@ -1,11 +1,11 @@
-<div
-  class="container-fluid d-flex flex-row justify-content-around align-items-baseline p-3"
->
-  <h1>
-    Cocktail<span class="hub">Hub</span><span class="display-hover">DB</span>
-  </h1>
-</div>
+<app-title></app-title>
 
+<div class="ingredient_container">
+  <h3 class="text-light text-center mt-3">Drink with
+    <span>{{ ingredient }}</span>
+  </h3>
+  <img class="ingredient_image" [src]="ingredientPic" alt="ingredientPic picture">
+</div>
 <div
   class="container d-flex flex-row flex-wrap justify-content-around align-items-baseline p-3"
 >

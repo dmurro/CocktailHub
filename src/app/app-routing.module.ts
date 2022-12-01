@@ -10,7 +10,7 @@ import { DrinkResolver } from './pages/drink/drink.resolver';
 import { HomeResolver } from './pages/home/home.resolver';
 
 const routes: Routes = [
- /*  { path: 'home', redirectTo: '/home/A', pathMatch: 'full' }, */
+  { path: 'home', redirectTo: '/home/A', pathMatch: 'full' },
   {
     path: 'home/:letter',
     component: HomeComponent,
@@ -31,7 +31,6 @@ const routes: Routes = [
   },
   { path: 'cart', component: CartComponent },
   { path: 'ingredient/:ingredients', component: IngredientComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: HomeComponent },
 ];
 
