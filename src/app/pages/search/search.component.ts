@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/_service/api.service';
 import { Drink } from 'src/app/_models/drink.model';
-import { checkCartQuantity } from '../../../.businessLogic/logicFunc';
-import { checkCartOccurences } from '../../../.businessLogic/logicFunc';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/_service/cartService';
 
@@ -12,13 +10,14 @@ import { CartService } from 'src/app/_service/cartService';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  
   jsonIn = {
     searchInputName: '',
     searchInputIngredient: '',
   };
 
   drinks: Drink[] = [];
-  cartList: any = [];
+  cartList: Drink[] = [];
   isClicked: boolean = false;
   isNull: boolean = false;
   isSearching: boolean = false;
@@ -27,13 +26,10 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private activatedRoute: ActivatedRoute,
-    private cartService : CartService
+    private cartService: CartService
   ) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   handleSearchDrinksByName = () => {
     this.apiService
@@ -56,11 +52,11 @@ export class SearchComponent implements OnInit {
     this.cartService.addToCart(drink);
   }
 
-  removeFromCart(drink: Drink) {
-    this.cartService.addToCart(drink)
+  removeFromCart(id : string) {
+    this.cartService.removeFromCart(id);
   }
 
-  handleCartParent = (drink: Drink, $event: number) => {
+/*   handleCartParent = (drink: Drink, $event: number) => {
     if ($event === 0) {
       if (checkCartQuantity(this.cartList.length) === true) {
         alert('Max 5 items in cart');
@@ -70,7 +66,7 @@ export class SearchComponent implements OnInit {
         alert('max 1 cocktail by type');
       } else {
         this.cartList.push(drink);
-       this.addToCart(drink);
+        this.addToCart(drink);
         this.handleCart = true;
         this.active = true;
       }
@@ -79,5 +75,5 @@ export class SearchComponent implements OnInit {
       this.handleCart = true;
       this.active = false;
     }
-  };
+  }; */
 }

@@ -10,7 +10,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   alphabet: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  /*   activeLetter : string = 'A'; */
   drink: Drink[] = [];
   randomDrink: any = {};
   selectedDrink?: any;
@@ -31,8 +30,6 @@ export class HomeComponent implements OnInit {
       } else {
         this.isNull = true;
       }
-      console.log(drinks);
-      console.log(this.drink);
     });
   }
 
@@ -43,7 +40,6 @@ export class HomeComponent implements OnInit {
   RandomDrink() {
     this.ApiService.getRandomDrink().subscribe((res: any) => {
       this.randomDrink = res.drinks[0];
-      console.log(this.randomDrink);
     });
   }
 

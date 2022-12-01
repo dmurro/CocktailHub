@@ -216,7 +216,6 @@
 
 <div class="container_message" *ngIf="isSearching === false">
   <div class="container_message_text">
-    <!-- <span>Let' s go!</span> -->
     <p>Search over 100+ cocktails</p>
   </div>
 </div>
@@ -237,7 +236,7 @@
         [drinks]="drink"
         [showButton]="true"
         [class.active]="active"
-        (handleCartEvent)="handleCartParent(drink, $event)"
+        (click)="addToCart(drink)"
       ></app-card-drink>
     </div>
   </div>

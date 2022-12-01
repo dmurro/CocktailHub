@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Drink } from 'src/app/_models/drink.model';
 
 @Component({
   selector: 'app-card-drink',
@@ -7,7 +8,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./card-drink.component.scss'],
 })
 export class CardDrinkComponent implements OnInit {
-  @Input() drinks: any = {
+  @Input() drinks: Drink = {
     idDrink: '',
     strDrink: '',
     strDrinkThumb: '',
@@ -15,8 +16,6 @@ export class CardDrinkComponent implements OnInit {
   };
 
   @Input() showButton: boolean = false;
-
-  @Output() handleCartEvent: EventEmitter<number> = new EventEmitter(); //evento
 
   selected: boolean = false;
   isHover: boolean = false;
@@ -33,13 +32,4 @@ export class CardDrinkComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleCartP(handler: number) {
-    if (handler) {
-      this.handleCartEvent.emit(0);
-      this.selected = true;
-    } else {
-      this.handleCartEvent.emit(1);
-      this.selected = false;
-    }
-  }
 }

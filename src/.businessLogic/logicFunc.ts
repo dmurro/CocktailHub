@@ -5,7 +5,7 @@ export const sortingDrinkByName = (query: Drink[]): Drink[] => {
   return sortedList;
 };
 
-export const checkCartQuantity = (itemQuantity: number): boolean => {
+/* export const checkCartQuantity = (itemQuantity: number): boolean => {
   if (itemQuantity >= 5) {
     alert('error');
     console.log('true');
@@ -13,9 +13,9 @@ export const checkCartQuantity = (itemQuantity: number): boolean => {
   } else {
     return false;
   }
-};
+}; */
 
-export const checkCartOccurences = (items: any): number | undefined => {
+/* export const checkCartOccurences = (items: any): number | undefined => {
   const count: any = {};
   let result = 0;
   for (const item of items) {
@@ -34,15 +34,15 @@ export const checkCartOccurences = (items: any): number | undefined => {
     }
   }
   return result;
-};
+}; */
 
-export const removeCartOccurences = (items: any, drink : Drink): void => {
+/* export const removeCartOccurences = (items: any, drink : Drink): void => {
   const idToRemove = drink.idDrink;
   items = items.filter((drink: Drink) => {
     return drink.idDrink !== idToRemove;
   })
   console.log(items);
-};
+}; */
 /*   for (const item of items) {
     if ([item.idDrink]) {
       console.log("ciao")
