@@ -19,6 +19,7 @@ export class CartService {
       }
     }
     this.drinks.push(drink);
+    alert('Item added to cart');
   }
 
   getDrinks() {

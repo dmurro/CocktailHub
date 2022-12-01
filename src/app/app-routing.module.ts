@@ -31,6 +31,7 @@ const routes: Routes = [
   },
   { path: 'cart', component: CartComponent },
   { path: 'ingredient/:ingredients', component: IngredientComponent },
+  { path: '', redirectTo: 'home/A', pathMatch: 'full' },
   { path: '**', component: HomeComponent },
 ];
 

@@ -1,20 +1,19 @@
 <div
   class="card m-3"
   style="width: 18rem"
-  (mouseover)="handleCardHover(true)"
-  (mouseout)="handleCardHover(false)"
+  [class.selected]="selected"
 >
-  <img class="card-img-top" [src]="drinks.strDrinkThumb" alt="drink image" />
+  <img class="card-img-top" [src]="drink.strDrinkThumb" alt="drink image" />
   <div class="card-body">
-    <h5 class="card-title">{{ drinks.strDrink }}</h5>
+    <h5 class="card-title">{{ drink.strDrink }}</h5>
     <a
       class="button btn-accent"
       type="button"
-      [routerLink]="'/drink/' + drinks.idDrink"
+      [routerLink]="'/drink/' + drink.idDrink"
       >Details</a
     >
     <div class="button_container" *ngIf="showButton">
-      <button type="button" class="cart_svg">
+      <button  class="cart_svg" type="button" (click)="addToCart(drink)">
         <svg
           version="1.1"
           width="1.5em"

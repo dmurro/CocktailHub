@@ -10,7 +10,6 @@ import { CartService } from 'src/app/_service/cartService';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  
   jsonIn = {
     searchInputName: '',
     searchInputIngredient: '',
@@ -19,10 +18,9 @@ export class SearchComponent implements OnInit {
   drinks: Drink[] = [];
   cartList: Drink[] = [];
   isClicked: boolean = false;
-  isNull: boolean = false;
+  isNull: boolean = true;
   isSearching: boolean = false;
   handleCart: boolean = false;
-  active: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -35,7 +33,12 @@ export class SearchComponent implements OnInit {
     this.apiService
       .getDrinksByName(this.jsonIn.searchInputName)
       .subscribe((res) => {
-        res === null ? (this.isNull = true) : (this.drinks = res);
+        if (res === null) {
+          this.isNull = true;
+        } else {
+          this.isNull = false;
+          this.drinks = res;
+        }
       });
     this.isSearching = true;
   };
@@ -44,7 +47,14 @@ export class SearchComponent implements OnInit {
     this.isClicked = true;
     this.apiService
       .getDrinksByIngredient(this.jsonIn.searchInputIngredient)
-      .subscribe((res) => (this.drinks = res));
+      .subscribe((res) => {
+        if (res === null) {
+          this.isNull = true;
+        } else {
+          this.isNull = false;
+          this.drinks = res;
+        }
+      });
     this.isSearching = true;
   };
 
@@ -52,11 +62,11 @@ export class SearchComponent implements OnInit {
     this.cartService.addToCart(drink);
   }
 
-  removeFromCart(id : string) {
+  removeFromCart(id: string) {
     this.cartService.removeFromCart(id);
   }
 
-/*   handleCartParent = (drink: Drink, $event: number) => {
+  /*   handleCartParent = (drink: Drink, $event: number) => {
     if ($event === 0) {
       if (checkCartQuantity(this.cartList.length) === true) {
         alert('Max 5 items in cart');

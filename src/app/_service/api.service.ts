@@ -28,7 +28,6 @@ export class ApiService {
       .pipe(
         map((res: any) => {
           const drinks: Drink[] = res.drinks as Drink[];
-          console.log(drinks);
           return drinks;
         })
       );
@@ -83,7 +82,6 @@ export class ApiService {
           Object.keys(drink).forEach((key) => {
             if (key.startsWith('strIngredient') && drink[key]) {
               const index = key.replace('strIngredient', '');
-              /* console.log(index); */
               drink.ingredients.push({
                 name: drink[key],
                 measure: drink['strMeasure' + index],
@@ -104,8 +102,6 @@ export class ApiService {
                 });
               }
               drink.strInstructions = drink.instructions;
-              console.log(drink.strInstructions);
-              console.log(drink);
             }
           });
           return drink;
